@@ -357,6 +357,7 @@ Key Components:
 - Stakeholder Buy-In Strategies
 
 ---
+## Project Timeline
 
 ```diff
 ## Project Timeline
