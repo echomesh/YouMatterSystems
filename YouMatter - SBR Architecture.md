@@ -1,8 +1,3 @@
-The concept of developing a robust architecture built on modern technologies such as Azure AD, Azure ARC, Docker containers, and Azure Blob Storage with objectives of high availability and resilience is certainly not new. However, the idea of branding this architecture as the "She'll be right" (SBR) architecture is unique and can resonate well, especially in contexts where a mix of confidence and reliability is valued.
-
-Here’s how you might present the SBR architecture:
-
----
 
 # She'll Be Right (SBR) Architecture Overview
 
