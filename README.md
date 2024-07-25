@@ -359,40 +359,38 @@ Key Components:
 ---
 ## Project Timeline
 
-```diff
-## Project Timeline
 
-@@- Q3 2024:@@
-!  - Finalize Project Charter
-!  - Complete Stakeholder Analysis
-!  - Gather Initial Requirements
-+  - Design System Architecture 
+- Q3 2024:
+  - Finalize Project Charter
+  - Complete Stakeholder Analysis
+  - Gather Initial Requirements
+<span style="color:green">  - Design System Architecture </ span>
 
-@@- Q4 2024:@@
--  - Develop Data Management Plan
--  - Begin Security Implementation
--  - Develop Testing Strategy
--  - Initial Development and Prototyping
+- Q4 2024:
+  - Develop Data Management Plan
+  - Begin Security Implementation
+  - Develop Testing Strategy
+  - Initial Development and Prototyping
   
-@@- Q1 2025:@@
--  - Continue Development
--  - Conduct Initial Testing (Unit and Integration)
--  - Develop Training Manual
--  - Draft Deployment Plan
+ Q1 2025:
+  - Continue Development
+  - Conduct Initial Testing (Unit and Integration)
+  - Develop Training Manual
+  - Draft Deployment Plan
 
-@@- Q2 2025:@@
--  - User Acceptance Testing
--  - Finalize Deployment Plan
--  - Implement Change Management Strategies
--  - Conduct Final Review and Approval
+ Q2 2025:
+  - User Acceptance Testing
+  - Finalize Deployment Plan
+  - Implement Change Management Strategies
+  - Conduct Final Review and Approval
   
-@@- Q3 2025:@@
--  - Deploy YouMatter PAS System
--  - Provide User Training
--  - Monitor and Address Initial Issues
--  - Begin Continuous Improvement Cycle
+- Q3 2025:
+  - Deploy YouMatter PAS System
+  - Provide User Training
+  - Monitor and Address Initial Issues
+  - Begin Continuous Improvement Cycle
 
-```
+
 ---
 
 ## Project Overview
