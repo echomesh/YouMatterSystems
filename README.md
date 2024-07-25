@@ -1,3 +1,6 @@
+Certainly! Here’s the updated documentation with the information about building deployment scripts using Bicep and the current stage of troubleshooting the deployment scripts, along with instructions on how to add a custom license to your repository.
+
+---
 
 # YouMatter Project Documentation
 
@@ -67,7 +70,8 @@
 
 ### Deployment Planning
 
-- Develop deployment scripts and configurations
+- Develop deployment scripts and configurations using Bicep
+- Troubleshoot deployment scripts
 - Plan rollout strategy
 - Set up CI/CD pipeline
 
@@ -138,12 +142,6 @@
 - Deploy Docker containers
 - Set up Azure Blob Storage
 - Configure load balancers and CDN
-
-### Network and Security Configuration
-
-- Set up virtual networks and subnets
-- Implement Zero Trust Architecture
-- Manage bandwidth with Traffic Shaping and QoS
 
 ---
 
@@ -278,7 +276,9 @@ Objective: Define data sources, storage, access controls, and security measures.
 
 Key Components:
 - Data Sources
-- Storage Solutions
+- Storage
+
+ Solutions
 - Access Controls
 - Data Processing Workflows
 - Data Retention Policies
@@ -313,34 +313,11 @@ Objective: Detail the deployment process, environments, and rollout strategy for
 Key Components:
 - Deployment Process
 - Rollout Strategy
-- Deployment Scripts
+- Deployment Scripts (Bicep)
+- Troubleshooting Deployment Scripts
 - Configurations
 - Post-Deployment Testing
 - User Training
-
-### 8. Training Manual
-
-Objective: Develop a comprehensive guide for users and administrators on how to use the YouMatter PAS system.
-
-Key Components:
-- Instructions
-- Screenshots
-- Troubleshooting Tips
-- Best Practices
-- System Absolutely, let's continue with the remaining sections to ensure a comprehensive and aligned project documentation structure for YouMatter.
-
----
-
-## Index (Continued)
-
-8. Training Manual (Continued)
-   - System Navigation Guidelines
-9. Change Management Plan
-10. Research Potentials
-
----
-
-## Project Documentation Overview (Continued)
 
 ### 8. Training Manual
 
@@ -472,12 +449,6 @@ Tools and Techniques:
 ---
 
 ## Project Overview
-
-Welcome to the YouMatter Project Repository, a hub of innovation and excellence in healthcare administration. Our mission is to streamline hospital operations Certainly! Let's continue with the Project Overview section and complete the Detailed Design section.
-
----
-
-## Project Overview (Continued)
 
 Welcome to the YouMatter Project Repository, a hub of innovation and excellence in healthcare administration. Our mission is to streamline hospital operations, enhance patient care, and revolutionize efficiency through the implementation of the YouMatter Patient Administration System (PAS). Developed by Conicu Consulting Pty Ltd, YouMatter stands at the forefront of healthcare technology, leveraging advanced solutions in security, Azure Identity and Access Management (IAM), and cloud computing.
 
@@ -611,7 +582,9 @@ Welcome to the YouMatter Project Repository, a hub of innovation and excellence 
   - Implement measures to safeguard patient data and privacy.
 
 - Regular Audits and Assessments:
-  - Conduct regular audits to ensure compliance.
+  - Conduct regular audits to ensure compliance
+
+.
   - Assess the system for vulnerabilities and address them promptly.
 
 ### Detailed Design and Implementation
@@ -638,8 +611,8 @@ Welcome to the YouMatter Project Repository, a hub of innovation and excellence 
 
 Conicu Consulting Pty Ltd
 
-- Email: Callum@conicu.com.au (mailto:Callum@conicu.com.au)
-- Website: Conicu (http://www.conicu.com.au)
+- Email: Callum@conicu.com.au
+- Website: [Conicu](http://www.conicu.com.au)
 
 ### Confidentiality Notice
 
@@ -647,8 +620,68 @@ This project documentation is confidential and intended solely for the use of Co
 
 ---
 
-Thank you for your interest in YouMatter. Together, we can revolutionize patient administration in healthcare!
+## Adding a Custom License to Your Repository
+
+To add a custom license to your repository, follow these steps:
+
+1. **Create a License File**:
+   - Create a file named `LICENSE` or `LICENSE.txt` in the root directory of your repository.
+
+2. **Add Your Custom License Text**:
+   - Open the `LICENSE` file and add your custom license text. Here’s a template you can modify according to your needs:
+
+     ```markdown
+     # YouMatter Custom License
+
+     ## Confidentiality Notice
+
+     YouMatter's intellectual property (IP) and proprietary information are confidential. Discussing ideas, methods, or any related information with unauthorized individuals constitutes a breach of privacy and confidentiality agreements. Ensure that all communications and disclosures adhere to internal policies and confidentiality agreements.
+
+     ## Terms of Use
+
+     1. Permission is hereby granted to any person obtaining a copy of this software and associated documentation files (the "Software"), to use the Software solely for internal purposes, including the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+     2. The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+     3. The Software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software.
+
+     4. YouMatter's IP and proprietary information must remain confidential. Discussing ideas or methods with anyone outside the organization is strictly prohibited and considered a breach of privacy.
+
+     ## Compliance with Internal Policies
+
+     All use of the Software must comply with internal policies and confidentiality agreements. Unauthorized use or distribution of this software is strictly prohibited.
+
+     ```
+
+3. **Commit the License File**:
+   - Add the `LICENSE` file to your repository and commit the changes:
+     ```sh
+     git add LICENSE
+     git commit -m "Add custom license"
+     git push origin main
+     ```
+
+### Example of Adding a License File
+
+Here’s an example of how to add the license file using Git commands:
+
+1. **Create the License File**:
+   ```sh
+   touch LICENSE
+   ```
+
+2. **Edit the License File**:
+   - Use a text editor to add your custom license text to the `LICENSE` file.
+
+3. **Add and Commit the License File**:
+   ```sh
+   git add LICENSE
+   git commit -m "Add custom license"
+   git push origin main
+   ```
 
 ---
+
+Thank you for your interest in YouMatter. Together, we can revolutionize patient administration in healthcare!
 
 This documentation provides a comprehensive overview of the YouMatter project, encompassing the objectives, detailed design, timelines, and all necessary plans to ensure successful implementation and operation. If you need any further updates or specific details, please let me know!
