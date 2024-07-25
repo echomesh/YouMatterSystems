@@ -1,6 +1,3 @@
-Sure, let's align the new content with the structure of your old project documentation. We'll integrate the new details while ensuring the format matches your existing structure.
-
----
 
 # YouMatter Project Documentation
 
