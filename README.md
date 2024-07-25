@@ -363,7 +363,9 @@ Key Components:
   - Finalize Project Charter
   - Complete Stakeholder Analysis
   - Gather Initial Requirements
+<span style="color:red">
   - Design System Architecture
+</span>
 
 ### Q4 2024:
   - Develop Data Management Plan
