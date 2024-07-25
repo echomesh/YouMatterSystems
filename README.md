@@ -1,6 +1,3 @@
-Certainly! Here’s the updated documentation with the information about building deployment scripts using Bicep and the current stage of troubleshooting the deployment scripts, along with instructions on how to add a custom license to your repository.
-
----
 
 # YouMatter Project Documentation
 
@@ -683,5 +680,3 @@ Here’s an example of how to add the license file using Git commands:
 ---
 
 Thank you for your interest in YouMatter. Together, we can revolutionize patient administration in healthcare!
-
-This documentation provides a comprehensive overview of the YouMatter project, encompassing the objectives, detailed design, timelines, and all necessary plans to ensure successful implementation and operation. If you need any further updates or specific details, please let me know!

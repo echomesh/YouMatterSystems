@@ -79,5 +79,3 @@ The She'll Be Right (SBR) architecture is a robust, resilient, and highly availa
 The She'll Be Right (SBR) architecture is designed to provide a robust, resilient, and highly available framework for healthcare systems. By leveraging advanced technologies and adhering to best practices, SBR ensures that your healthcare applications remain secure, efficient, and reliable. Just as you trust the rope holding your essentials on the back of your VU S pack Ute, you can trust the SBR architecture to keep your healthcare systems running smoothly.
 
 ---
-
-Feel free to adapt and expand this overview to fit your specific needs and context. The "She'll Be Right" branding can add a unique and memorable touch, emphasizing the reliability and confidence that the architecture provides.
