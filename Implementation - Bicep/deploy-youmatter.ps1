@@ -1,7 +1,7 @@
 # Set the subscription ID and project name
 $subscriptionId = "86efc65b-4bd2-4a22-800e-5bff2c0a2349"
-$projectName = "YouMatterTest"
-$resourceGroupName = "${projectName}RG"
+$projectName = "YouMatterDev"
+$resourceGroupName = "${projectName}_RG"
 $location = "EastUS"
 
 # Set the Bicep file paths
@@ -59,6 +59,12 @@ $storageAccountParams = @{
     location = $location
 }
 
+# Verify that the Bicep files exist before deploying
+if (-Not (Test-Path -Path $keyVaultBicep)) {
+    Write-Error "Key Vault Bicep file not found at path: $keyVaultBicep"
+    exit 1
+}
+
 # Function to deploy resources
 function Deploy-Resource {
     param (
@@ -66,13 +72,33 @@ function Deploy-Resource {
         [hashtable]$parameters,
         [string]$resourceDescription
     )
+    if (-Not (Test-Path -Path $templateFile)) {
+        Write-Error "Template file not found at path: $templateFile"
+        exit 1
+    }
     try {
-        az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $templateFile --parameters $parameters --debug
+        az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $templateFile --parameters $parameters
         Write-Host "$resourceDescription deployed successfully."
     } catch {
         Write-Error "Failed to deploy $resourceDescription. $_"
         exit 1
     }
+}
+
+# Verify Subscription and Resource Group
+try {
+    az account set --subscription $subscriptionId
+    $resourceGroup = az group show --name $resourceGroupName --query "name" --output tsv
+    if (-not $resourceGroup) {
+        az group create --name $resourceGroupName --location $location --subscription $subscriptionId
+        Write-Host "Resource group '$resourceGroupName' created successfully."
+        Start-Sleep -Seconds 30 # Add delay to ensure the resource group creation propagates
+    } else {
+        Write-Host "Resource group '$resourceGroupName' already exists."
+    }
+} catch {
+    Write-Error "Failed to verify subscription or resource group. $_"
+    exit 1
 }
 
 # Verify Subscription and Resource Group
@@ -120,14 +146,6 @@ try {
         if ($spObjectId) {
             Write-Host "Object ID of the Service Principal: $spObjectId"
             $keyVaultParams["objectId"] = $spObjectId
-
-            # Assign API permissions
-            Write-Host "Assigning API permissions..."
-            $graphApiResourceId = "00000003-0000-0000-c000-000000000000"
-            $directoryReadAllPermissionId = "e1fe6dd8-ba31-4d61-89e7-88639da4683d"
-            az ad app permission add --id $spAppId --api $graphApiResourceId --api-permissions "$directoryReadAllPermissionId=Scope"
-            az ad app permission grant --id $spAppId --api $graphApiResourceId --scope "/subscriptions/$subscriptionId"
-            Write-Host "API permissions assigned successfully."
         } else {
             Write-Error "Failed to retrieve the Object ID of the Service Principal."
             exit 1
@@ -155,20 +173,10 @@ try {
     exit 1
 }
 
-# Deploy Key Vault
+# Deploy resources
 Deploy-Resource -templateFile $keyVaultBicep -parameters $keyVaultParams -resourceDescription "Key Vault"
-
-# Deploy Application Insights
 Deploy-Resource -templateFile $appInsightsBicep -parameters $appInsightsParams -resourceDescription "Application Insights"
-
-# Deploy Virtual Network
-Deploy-Resource -templateFile $vnetBicep -parameters $vnetParams -resourceDescription "Virtual Network"
-
-# Deploy Public IP
-Deploy-Resource -templateFile $publicIpBicep -parameters $publicIpParams -resourceDescription "Public IP"
-
-# Deploy Storage Account
-Deploy-Resource -templateFile $storageAccountBicep -parameters $storageAccountParams -resourceDescription "Storage Account"
-
-# Deploy Virtual Machine
 Deploy-Resource -templateFile $virtualMachineBicep -parameters $vmParams -resourceDescription "Virtual Machine"
+Deploy-Resource -templateFile $publicIpBicep -parameters $publicIpParams -resourceDescription "Public IP"
+Deploy-Resource -templateFile $vnetBicep -parameters $vnetParams -resourceDescription "Virtual Network"
+Deploy-Resource -templateFile $storageAccountBicep -parameters $storageAccountParams -resourceDescription "Storage Account"
