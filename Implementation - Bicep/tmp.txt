@@ -1,0 +1,38 @@
+{
+  "appId": "87dfdafe-e445-4b3a-b8f9-d3cb4eba5f87",
+  "displayName": "YouMatter",
+  "password": "kHS8Q~-i_SwAUR9qkfe5hXveHm7TZ5pZs2e5Ydwe",
+  "tenant": "2be25bea-cf0a-4bef-aa15-d0f4963b3af0"
+}
+PS C:\Git\YouMatter---Shared\Implementation - Bicep> az role assignment create --assignee 87dfdafe-e445-4b3a-b8f9-d3cb4eba5f87 --role Contributor --scope /subscriptions/86efc65b-4bd2-4a22-800e-5bff2c0a2349/resourceGroups/YouMatterRG
+{
+  "condition": null,
+  "conditionVersion": null,
+  "createdBy": null,
+  "createdOn": "2024-07-26T01:26:22.264616+00:00",
+  "delegatedManagedIdentityResourceId": null,
+  "description": null,
+  "id": "/subscriptions/86efc65b-4bd2-4a22-800e-5bff2c0a2349/resourceGroups/YouMatterRG/providers/Microsoft.Authorization/roleAssignments/d2ca66c0-79d7-438b-a982-ef76f3df0ca2",
+  "name": "d2ca66c0-79d7-438b-a982-ef76f3df0ca2",
+  "principalId": "09cbc198-e50a-498e-a126-3c73d2d76f45",
+  "principalType": "ServicePrincipal",
+  "resourceGroup": "YouMatterRG",
+  "roleDefinitionId": "/subscriptions/86efc65b-4bd2-4a22-800e-5bff2c0a2349/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",    
+  "scope": "/subscriptions/86efc65b-4bd2-4a22-800e-5bff2c0a2349/resourceGroups/YouMatterRG",
+  "type": "Microsoft.Authorization/roleAssignments",
+  "updatedBy": "98049e66-ff3b-40fd-9586-f9dfde618805",
+  "updatedOn": "2024-07-26T01:26:22.739624+00:00"
+}
+
+az role assignment list --assignee 87dfdafe-e445-4b3a-b8f9-d3cb4eba5f87 --scope /subscriptions/86efc65b-4bd2-4a22-800e-5bff2c0a2349/resourceGroups/YouMatterRG --output table
+
+
+# Assign the Contributor role to the service principal
+az role assignment create --assignee 98049e66-ff3b-40fd-9586-f9dfde618805 --role "Owner" --scope /subscriptions/86efc65b-4bd2-4a22-800e-5bff2c0a2349/resourceGroups/YouMatterRG 
+
+
+
+az ad sp show --id 87dfdafe-e445-4b3a-b8f9-d3cb4eba5f87 --query objectId --output tsv
+
+
+az ad sp create-for-rbac --name "YouMatterSP" --role contributor --scopes /subscriptions/86efc65b-4bd2-4a22-800e-5bff2c0a2349

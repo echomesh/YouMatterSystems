@@ -1,6 +1,30 @@
+# List of required Azure CLI extensions
+$extensions = @(
+    "application-insights",
+    "account",
+    "aks-preview",
+    "azure-devops",
+    "container",
+    "databricks",
+    "eventgrid",
+    "find",
+    "interactive",
+    "log-analytics",
+    "resource-graph",
+    "virtual-wan",
+    "front-door",
+    "webapp",
+    "azure-firewall"
+)
+
+# Loop through each extension and install it
+foreach ($extension in $extensions) {
+    az extension add --name $extension
+}
+
 # Set the subscription ID and resource group name
-$subscriptionId = "83254ae3-02c7-4dcf-b4bd-77183d0ff603"
-$resourceGroupName = "YouMatter"
+$subscriptionId = "86efc65b-4bd2-4a22-800e-5bff2c0a2349"
+$resourceGroupName = "YouMatterRG"
 $location = "EastUS"
 
 # Set the Bicep file paths
@@ -13,11 +37,16 @@ $storageAccountBicep = "./storageAccount.bicep"
 
 # Parameters for Key Vault
 $keyVaultParams = @{
-    keyVaultName = "YouMatterKeyVault"
+    keyVaultName = "YouMatterKV"
     location = $location
-    objectId = "98049e66-ff3b-40fd-9586-f9dfde618805"
+    objectId = "87dfdafe-e445-4b3a-b8f9-d3cb4eba5f87"
 }
 
+# Parameters for Application Insights
+$appInsightsParams = @{
+    appInsightsName = "YouMatterAI"
+    location = $location
+}
 
 # Parameters for Virtual Machine
 $vmParams = @{
@@ -26,7 +55,7 @@ $vmParams = @{
     vmSize = "Standard_DS2_v2"
     adminUsername = "YourAdminUsername"
     adminPassword = (ConvertTo-SecureString -String "YourAdminPassword" -AsPlainText -Force)
-    subnetId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Network/virtualNetworks/YourVnetName/subnets/YourSubnetName"
+    subnetId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Network/virtualNetworks/YouMatterVnet/subnets/YourSubnetName"
     networkInterfaceName = "YourNetworkInterfaceName"
     publicIpName = "YourPublicIpName"
     diskName = "YourDiskName"
@@ -34,7 +63,7 @@ $vmParams = @{
 
 # Parameters for Public IP
 $publicIpParams = @{
-    publicIpName = "YourPublicIpName"
+    publicIpName = "YouMatterPIP"
     location = $location
 }
 
@@ -53,20 +82,64 @@ $storageAccountParams = @{
     location = $location
 }
 
+# Create Resource Group
+try {
+    az group create --name $resourceGroupName --location $location --subscription $subscriptionId
+    Write-Host "Resource group '$resourceGroupName' created successfully."
+} catch {
+    Write-Error "Failed to create resource group '$resourceGroupName'."
+    exit 1
+}
+
+# az ad sp create-for-rbac --name "YouMatter" 
+#az role assignment create --assignee 87dfdafe-e445-4b3a-b8f9-d3cb4eba5f87 --role Contributor --scope /subscriptions/86efc65b-4bd2-4a22-800e-5bff2c0a2349/resourceGroups/YouMatterRG
+#az role assignment list --assignee 87dfdafe-e445-4b3a-b8f9-d3cb4eba5f87 --scope /subscriptions/86efc65b-4bd2-4a22-800e-5bff2c0a2349/resourceGroups/YouMatterRG --output table
+
+
 # Deploy Key Vault
-az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $keyVaultBicep --parameters $keyVaultParams --debug
+try {
+    az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $keyVaultBicep --parameters $keyVaultParams --debug
+    Write-Host "Key Vault deployed successfully."
+} catch {
+    Write-Error "Failed to deploy Key Vault."
+}
 
 # Deploy Application Insights
-az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $appInsightsBicep --parameters $appInsightsParams
+try {
+    az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $appInsightsBicep --parameters $appInsightsParams
+    Write-Host "Application Insights deployed successfully."
+} catch {
+    Write-Error "Failed to deploy Application Insights."
+}
 
 # Deploy Public IP
-az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $publicIpBicep --parameters $publicIpParams
+try {
+    az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $publicIpBicep --parameters $publicIpParams
+    Write-Host "Public IP deployed successfully."
+} catch {
+    Write-Error "Failed to deploy Public IP."
+}
 
 # Deploy Virtual Network
-az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $vnetBicep --parameters $vnetParams
+try {
+    az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $vnetBicep --parameters $vnetParams
+    Write-Host "Virtual Network deployed successfully."
+} catch {
+    Write-Error "Failed to deploy Virtual Network."
+}
 
 # Deploy Storage Account
-az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $storageAccountBicep --parameters $storageAccountParams
+try {
+    az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $storageAccountBicep --parameters $storageAccountParams
+    Write-Host "Storage Account deployed successfully."
+} catch {
+    Write-Error "Failed to deploy Storage Account."
+}
 
 # Deploy Virtual Machine
-az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $virtualMachineBicep --parameters $vmParams
+try {
+    az deployment group create --subscription $subscriptionId --resource-group $resourceGroupName --template-file $virtualMachineBicep --parameters $vmParams
+    Write-Host "Virtual Machine deployed successfully."
+} catch {
+    Write-Error "Failed to deploy Virtual Machine."
+}
