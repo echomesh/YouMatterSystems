@@ -107,8 +107,5 @@ As we look to expand our market presence, our strategy will focus on targeting h
 
 Join Us in Transforming Healthcare
 
-We invite potential partners, investors, and healthcare providers to join us in revolutionizing patient management through YouMatter. For more information or to schedule a meeting, please contact us at [insert contact information].
+We invite potential partners, investors, and healthcare providers to join us in revolutionizing patient management through YouMatter. For more information or to schedule a meeting, please contact us at callum@youmatter.systems
 
----
-
-This updated overview now includes the necessary details about network and endpoint security, the market analysis, and the correct title for Victor. If you have any further adjustments or additions, just let me know!
