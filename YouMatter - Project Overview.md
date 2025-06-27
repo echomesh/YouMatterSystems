@@ -95,10 +95,6 @@ The implementation of YouMatter can be structured into phases:
   - Technical Understanding: He possesses a solid understanding of cloud concepts and the key skills that industry experts should have. This technical insight enables him to effectively assess and recruit talent that aligns with our goals.
   - Extensive Talent Pool Access: Victor has access to a vast talent pool, allowing us to attract highly skilled professionals who can drive the success of YouMatter.
 
-- Anastasia [Last Name] - Customer Relationship Management Expert
-  - Dedication: Anastasia has demonstrated a remarkable commitment to going above and beyond for her clients and colleagues. Her experience in managing relationships, particularly in disability support and customer service roles, showcases her ability to meet and exceed expectations.
-  - Empathy and Support: Her genuine care for others is evident in her personal life, where she consistently prioritizes the needs of her friends and those in her community. Anastasia embodies compassion and has a beautiful soul, making her an irreplaceable asset to our team.
-
 ### Market Strategy
 
 As we look to expand our market presence, our strategy will focus on targeting hospitals, small clinics, government bodies, and research institutions. We will leverage the unique advantages of YouMatter to demonstrate how our solution not only improves operational efficiencies but also delivers tangible financial benefits. By articulating the value proposition of YouMatter to potential clients, we aim to establish long-term partnerships that contribute to a more effective and responsive healthcare system.
