@@ -1,7 +1,3 @@
-Sure, here’s an expanded version with more details:
-
----
-
 YouMatter Systems © 2024 by Callum Maystone is licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
 
 ### Summary of License
