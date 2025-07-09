@@ -101,4 +101,21 @@ This whitepaper is confidential and intended solely for the use of Conicu Consul
 
 ---
 
-Thank you for your interest in YouMatter. Together, we can revolutionize patient administration in healthcare!
+To understand how we got here, I've been signal bleeding on Twitter for the past year... Have fun
+
+https://x.com/WorthyOfGod0
+
+---
+
+Thank you for your interest in YouMatter. Together, we can revolutionize patient administration in healthcare!\
+
+## Legacy YouMatter Configuration before post-cloud renisanse 
+
+![image](https://github.com/user-attachments/assets/5b08af3b-4361-4704-9c05-f1323efc6df3)
+
+![image](https://github.com/user-attachments/assets/b1df85ed-34e3-4b49-a4fe-5ecf1e4e9f02)
+
+![image](https://github.com/user-attachments/assets/e937afd7-0bee-42f3-a3ff-e29fa559be8d)
+
+
+
