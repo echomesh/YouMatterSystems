@@ -56,6 +56,33 @@ Our Vision: To empower healthcare professionals with technology, leading to enha
 6. **Future-Ready Infrastructure**
    - **Scalability**: YouMatter grows with hospitals, ensuring reliable performance regardless of scale.
    - **Continuous Improvement**: An evolution based on user feedback and technological advancements keeps YouMatter ahead of the curve.
+   - 
+
+
+```mermaid
+graph TD
+    Cert[Root Cert (Graph Key)]
+    U1[User Cert]
+    D1[Device Cert]
+    E1[Endpoint Cert]
+    Auth[Auth Decision]
+    
+    Cert --> U1
+    Cert --> D1
+    Cert --> E1
+    U1 --> Auth
+    D1 --> Auth
+    E1 --> Auth
+```
+
+```bash
+# Generate a DAG-based ACL entry
+umatter trust grant --user alice --resource db.prod --signal auth.login --ttl 24h
+
+# Export cert to Windows store
+umatter cert export --target win-user-store --format pkcs12
+
+```
 
 #### Detailed Features
 
