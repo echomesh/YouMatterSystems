@@ -1,7 +1,9 @@
 
+![1_aUYBkkjk81UuFLiQp2jrqA](https://github.com/user-attachments/assets/79bf2f26-7de3-44c7-ae9a-3de439f7a96b)
+
 ## Whitepaper
 
-### Conicu Consulting Pty Ltd: YouMatter Whitepaper Update
+### Conicu Consulting Pty Ltd: YouMatter Systems Whitepaper 
 
 #### Introduction
 
