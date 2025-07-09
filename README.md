@@ -61,7 +61,7 @@ Our Vision: To empower healthcare professionals with technology, leading to enha
 
 ```mermaid
 graph TD
-    Cert[Root Cert (Graph Key)]
+    Cert[Root Cert]
     U1[User Cert]
     D1[Device Cert]
     E1[Endpoint Cert]
